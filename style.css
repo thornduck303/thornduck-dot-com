@@ -1,17 +1,17 @@
 :root {
 	--lightbrown:	#916e42;
-	--brown:	#6e4e41;
+	--brown:		#6e4e41;
 	--darkbrown:	#48323b;
 	--lightcyan:	#00c692;
-	--cyan:		#0d9c95;
-	--darkcyan:	#13667e;
+	--cyan:			#0d9c95;
+	--darkcyan:		#13667e;
 	--darkercyan:	#153765;
 	--darkestcyan:	#1b1437;
-	--pink:		#e3329a;
-	--darkpink:	#890094;
-	--white:	#ffffff;
-	--black:	#000000;
-	--darkblue:	#090512;
+	--pink:			#e3329a;
+	--darkpink:		#890094;
+	--white:		#ffffff;
+	--black:		#000000;
+	--darkblue:		#090512;
 }
 
 * {
@@ -22,7 +22,7 @@
 }
 
 body {
-	height: 2000px; /* REMOVE: scroll testing only */
+	/* height: 2000px; /* REMOVE: scroll testing only */
 	background-color: var(--darkblue);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -33,11 +33,19 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
+	height: 430px;
 
 	background-color: var(--darkblue);
+  	border-bottom: 10px ridge var(--darkestcyan);
 	z-index: 1000;
 
 	padding: 10px 20px;
+}
+
+#header-buttons{
+	position: absolute;
+	top: 340px;
+	left: 45%;
 }
 
 main {
@@ -85,16 +93,7 @@ a:active {
 }
 
 .game-list li {
-	margin 6px 0;
-}
-
-.social-links {
-	margin-top: 15px;
-}
-
-.social-links a {
-	margin: 0 6px;
-	display: inline-block;
+	margin: 6px 0;
 }
 
 #main-logo {
@@ -103,7 +102,7 @@ a:active {
 	transform: scale(1);
 	width: 640px;
 	height: auto;
-	transition: transform 0.1s linear;
+	/* transition: transform 0.1s linear; */
 
 	clip-path: circle(100% at center);
 	pointer-events: none;
