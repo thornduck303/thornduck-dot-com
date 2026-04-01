@@ -1,26 +1,43 @@
-const logo = document.getElementById("main-logo");
-const header = document.getElementById("main-header");
-const headerButtons = document.getElementById("header-buttons");
+const LOGO = document.getElementById("main-logo");
+const HEADER = document.getElementById("main-header");
+
+const SCROLL_THRESHOLD = 300;
+const LOGO_FINAL_SCALE = 0.5;
+const LOGO_FINAL_TRANSLATION_X = 0;
+const LOGO_FINAL_TRANSLATION_Y = 0;
+const LOGO_FINAL_CLIP_PERCENT = 20;
+const LOGO_CLIP_X_PERCENT = 35;
+const LOGO_CLIP_Y_PERCENT = 30;
 
 window.addEventListener("scroll", () => {
-	if (!logo || !header || !headerButtons) return;
+	if (SCROLL_THRESHOLD == 0) return;
+	
+	let scroll = window.scrollY;
+	let progress = scroll / SCROLL_THRESHOLD;
 
-	const scroll = window.scrollY;
-	const progress = Math.min(scroll / 300, 1);
+	progress = Math.min(progress, 1);
+	progress = Math.max(progress, 0);
 
-	const scale = 1 - (0.5 * progress);
-	const translateX = -50 * progress;
-	const translateY = -25 * progress;
-	const clip = 100 - (80 * progress);
-
-	logo.style.transform = `translateX(${translateX}%) translateY(${translateY}%) scale(${scale})`;
-	logo.style.clipPath = `circle(${clip}% at 35% 30%)`;
-
-	const height = 430 - 300 * progress;
-
-	header.style.height = `${height}px`;
-
-	const buttonHeight = 340 - 300 * progress;
-
-	headerButtons.style.top = `${buttonHeight}px`;
+	updateHeader(progress);
+	updateLogo(progress);
 })
+
+function updateHeader(progress) {
+	if (!HEADER) return;
+
+	let heightPercent = 100 - 80 * progress;
+
+	HEADER.style.height = `${heightPercent}%`;
+}
+
+function updateLogo(progress) {
+	if (!LOGO) return;
+
+	let scale = 1 - (1 - LOGO_FINAL_SCALE) * progress;
+	let translateX = -50 + (LOGO_FINAL_TRANSLATION_X + LOGO_CLIP_X_PERCENT/4) * progress;
+	let translateY = -50 + (LOGO_FINAL_TRANSLATION_Y + LOGO_CLIP_Y_PERCENT/4) * progress;
+	let clip = 100 - (100 - LOGO_FINAL_CLIP_PERCENT) * progress;
+
+	LOGO.style.transform = `translateX(${translateX}%) translateY(${translateY}%) scale(${scale})`;
+	LOGO.style.clipPath = `circle(${clip}% at ${LOGO_CLIP_X_PERCENT}% ${LOGO_CLIP_Y_PERCENT}%)`;
+}

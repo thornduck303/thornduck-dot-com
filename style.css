@@ -18,13 +18,13 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Roboto", sans-serif;
+	font-family: "Silkscreen", sans-serif;
 }
 
 body {
-	/* height: 2000px; /* REMOVE: scroll testing only */
+	margin-top: 200px;
 	background-color: var(--darkblue);
-	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: none;
 	-moz-osx-font-smoothing: grayscale;
 }
 
@@ -33,12 +33,18 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 430px;
+	height: 100%;
 
 	background-color: var(--darkblue);
-  	border-bottom: 10px ridge var(--darkestcyan);
 	z-index: 1000;
 
+	padding: 10px 20px;
+
+	display: flex;
+	align-items: center;
+}
+
+footer {
 	padding: 10px 20px;
 }
 
@@ -62,16 +68,13 @@ section {
 	text-align: center;
 }
 
-h1, h2, h3 {
-	color: var(--cyan);
-	letter-spacing: 1px;
-	margin-top: 30px;
-}
-
 p {
 	color: var(--white);
 	line-height: 1.6;
 	margin-top: 10px;
+  	
+	font-weight: 400;
+  	font-style: normal;
 }
 
 a {
@@ -86,6 +89,34 @@ a:active {
 	color: var(--darkpink);
 }
 
+.game-container {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	justify-content: center;
+}
+
+.game-capsule img {
+	height: 315px;
+	width: auto;
+
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.game-video {
+	height: 315px;
+	width: 560px;
+
+	overflow: hidden;
+}
+
+.game-video iframe {
+	display: block;
+	width: 100%;
+	border: none;
+}
+
 .game-list {
 	list-style: none;
 	padding: 0;
@@ -97,12 +128,12 @@ a:active {
 }
 
 #main-logo {
-	top: 10px;
-	left: 0;
-	transform: scale(1);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%) scale(1);
 	width: 640px;
 	height: auto;
-	/* transition: transform 0.1s linear; */
 
 	clip-path: circle(100% at center);
 	pointer-events: none;
