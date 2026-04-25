@@ -1,0 +1,83 @@
+:root {
+	--lightbrown:	#916e42;
+	--brown:		#6e4e41;
+	--darkbrown:	#48323b;
+	--lightcyan:	#00c692;
+	--cyan:			#0d9c95;
+	--darkcyan:		#13667e;
+	--darkercyan:	#153765;
+	--darkestcyan:	#1b1437;
+	--pink:			#e3329a;
+	--darkpink:		#890094;
+	--white:		#ffffff;
+	--black:		#000000;
+	--darkblue:		#090512;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Silkscreen", monospace;
+}
+
+main {
+	margin-top: 40px;
+}
+
+body {
+	background-color: var(--darkblue);
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+	text-align: center;
+}
+
+p{
+	color: var(--white);
+	line-height: 1.6;
+	margin-top: 10px;
+	font-size: 20px;
+  	
+	font-weight: 400;
+  	font-style: normal;
+}
+
+#our-mission p{
+	color: var(--brown);
+}
+
+#main-logo {
+	width: 640px;
+	height: auto;
+}
+
+.social-links {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+}
+
+.social-button img {
+	width: 96px;
+	height: auto;
+	fill: var(--white);
+	transition: fill 0.2s ease;
+}
+
+.social-button img:hover {
+	fill: var(--pink);
+}
+
+.pixel-perfect-image{
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -o-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: optimize-contrast;
+	image-rendering: pixelated;
+	-ms-interpolation-mode: nearest-neighbor;
+}
