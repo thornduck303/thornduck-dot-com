@@ -14,10 +14,15 @@
 	--darkblue:		#090512;
 }
 
-body {
+* {
+	box-sizing: border-box;
 	margin: 0;
+}
+
+body {
 	font-family: Arial, sans-serif;
 	background-color: var(--darkblue);
+	color: var(--white);
 }
 
 header {
@@ -25,14 +30,13 @@ header {
 	top: 0;
 	width: 100%;
 	height: 70px;
-	background-color: var(--darkblue);
 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	background-color: var(--darkblue);
 
 	padding: 0 20px;
-	box-sizing: border-box;
 	z-index: 1000;
 }
 
@@ -47,18 +51,15 @@ header {
 }
 
 nav a {
-	display: inline-block;
 	padding: 8px 16px;
+	border: 2px solid var(--white);
+	border-radius: 10px;
 
 	color: var(--white);
 	text-decoration: none;
 	font-weight: bold;
 
-	border: 2px solid var(--white);
-	border-radius: 10px;
-
-	background-color: transparent;
-	transition: all 0.3s ease;
+	transition: 0.3s;
 }
 
 nav a:hover {
@@ -69,43 +70,45 @@ nav a:hover {
 .header-right img {
 	height: 25px;
 	margin-left: 15px;
-	cursor: pointer;
 }
 
 main {
+    margin-top: 70px;
+    text-align: center;
+
+    background-image: 
+        linear-gradient(to top, var(--darkblue) 0%, var(--darkblue) 50%, transparent 100%),
+        url("../imgs/main_background.png");
+
+    background-repeat: no-repeat, repeat-x;
+    background-position: top, top;
+
+    background-size: auto 600px, auto;
+}
+
+section {
+    scroll-margin-top: 80px;
 	margin-top: 70px;
-	background-color: var(--darkblue);
-	background-image: 
-		linear-gradient(to top, var(--darkblue) 220px, rgba(0,0,0,0)),
-		url("../imgs/main_background.png");
-
-	background-repeat: no-repeat, repeat-x;
-	background-position: top, top;
-	background-size: 100% auto, auto;
+	margin-bottom: 70px;
 }
 
-.center {
-	text-align: center;
+h2 {
+	font-size: 30px;
 }
 
-p{
-	color: var(--white);
-	line-height: 1.6;
-	margin-top: 10px;
-	font-size: 20px;
-  	
-	font-weight: 400;
-  	font-style: normal;
+p {
+    font-size: 20px;
+    line-height: 1.6;
 }
 
-#our-mission p{
-	color: var(--brown);
+.colored-text {
+	color: var(--pink);
+	font-weight: bold;
 }
 
 #main-logo {
 	margin-top: 70px;
 	width: 640px;
-	height: auto;
 }
 
 .pixel-perfect-image{
@@ -116,4 +119,123 @@ p{
 	image-rendering: optimize-contrast;
 	image-rendering: pixelated;
 	-ms-interpolation-mode: nearest-neighbor;
+}
+
+#about {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.text {
+	max-width: 600px;
+	margin: auto;
+}
+
+.members-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.member { 
+	position: relative; 
+	padding: 2rem; 
+	margin: 2rem 0; 
+	border-radius: 16px; 
+
+	background-color: rgba(25, 25, 30, 1); 
+	overflow: hidden; 
+	box-shadow: 0 8px 25px var(--black); 
+
+	flex: 1 1 300px; 
+	max-width: 450px; 
+}
+
+.member::before { 
+	content: ""; 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 120px; 
+
+	background-size: cover; 
+	background-position: center;
+	 z-index: 0; 
+	 opacity: 0.8; 
+}
+
+#murilo::before {
+	background-image: url("../imgs/murilo_header.jpg");
+}
+
+#daniel::before {
+	background-image: url("../imgs/daniel_header.jpg");
+}
+
+.member > * { 
+	position: relative; 
+	z-index: 1; 
+}
+
+.member-header {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.profile-pic { 
+	width: 100px; 
+	height: 100px;
+	margin: 40px auto 0 auto; 
+
+	border-radius: 50%; 
+	object-fit: cover; 
+
+	box-shadow: 0 4px 10px var(--black); 
+}
+
+.member-linkedin {
+	position: absolute;
+	right: 0;
+	top: 110px;
+}
+
+.member-linkedin img { 
+	width: 30px; height: auto; 
+}
+
+.member-name {
+	margin: 0.25rem 0;
+  	font-weight: bold;
+}
+
+.member-role {
+	color: rgba(80, 80, 90, 1); 
+  	font-style: italic;
+}
+
+.member-description {
+	margin: 0.5rem 0;
+	text-align: justify;
+}
+
+.game {
+	margin-top: 40px;
+}
+
+.game-capsule img {
+	border-radius: 8px;
+}
+
+footer {
+	text-align: center;
+	margin: 50px 0 30px;
+}
+
+footer p {
+	color: rgba(60, 60, 100, 1); 
+	font-size: 15px;
 }

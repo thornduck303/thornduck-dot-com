@@ -8,40 +8,89 @@
 </head>
 
 <body>
-	<header>
-		<div class="header-left">
+<header>
+	<div class="header-left">
+		<a href="#">
 			<img src="imgs/thornduck_header.png" alt="ThornDuck logo" class="header-logo">
-			<nav>
-				<a href="#about">About</a>
-				<a href="#games">Games</a>
-			</nav>
+		</a>
+
+		<nav>
+			<a href="#games">Games</a>
+			<a href="#about">About</a>
+		</nav>
+	</div>
+
+	<div class="header-right">
+		<a href="https://www.youtube.com/@thornduck303" target="_blank"><img src="imgs/youtube.webp" alt="YouTube"></a>
+		<a href="https://twitter.com/Murilo3031" target="_blank"><img src="imgs/x.webp" alt="X"></a>
+		<a href="https://bsky.app/profile/thornduck.bsky.social" target="_blank"><img src="imgs/bluesky.webp" alt="Bluesky"></a>
+		<a href="https://github.com/thornduck303" target="_blank"><img src="imgs/github.webp" alt="Github"></a>
+		<a href="https://store.steampowered.com/curator/45712863-ThornDuck/" target="_blank"><img src="imgs/steam.webp" alt="Steam"></a>
+	</div>
+</header>
+
+<main>
+	<img id="main-logo" class="pixel-perfect-image" src="imgs/thornduck_160x80_2025.gif" alt="ThornDuck logo">
+
+	<section id="games">
+		<p> </p>
+		<h2>Games</h2>
+
+		<div class="game">
+			<a class="game-capsule" href="https://store.steampowered.com/app/2411250/The_Warrior/" target="_blank">
+				<img src="imgs/thewarrior_capsule.png" alt="The Warrior game cover">
+			</a>
 		</div>
+	</section>
 
-		<div class="header-right">
-			<a href="https://www.youtube.com/@thornduck303" target="_blank"><img src="imgs/youtube.webp" alt="YouTube"></a>
-			<a href="https://twitter.com/Murilo3031" target="_blank"><img src="imgs/x.webp" alt="X"></a>
-			<a href="https://bsky.app/profile/thornduck.bsky.social" target="_blank"><img src="imgs/bluesky.webp" alt="Bluesky"></a>
-			<a href="https://github.com/thornduck303" target="_blank"><img src="imgs/github.webp" alt="Github"></a>
-			<a href="https://store.steampowered.com/curator/45712863-ThornDuck/" target="_blank"><img src="imgs/steam.webp" alt="Steam"></a>
-		</div>
-	</header>
+	<section id="about">
+		<h2>About</h2>
 
-	<main class="center">
-		<img id="main-logo" class="pixel-perfect-image" src="imgs/thornduck_160x80_2025.gif" alt="ThornDuck logo">
-
-		<div id="our-mission">
+		<div class="text">
 			<p>
-				Building crazy little worlds that we love and care for,
-			</p>
-			<p>
-				and sharing unique experiences with you!
+				<span class="colored-text">ThornDuck</span> is a small indie game studio based in Brazil. <br>
+				Our mission is to craft <span class="colored-text">crazy little worlds</span> that we love and care for, and to share <span class="colored-text">unique experiences</span> with you!
 			</p>
 		</div>
-	</main>
 
-	<footer class="center">
-		<p>contact@thornduck.com</p>
-		<p>Copyright © 2026 ThornDuck</p>
-	</footer>
+		<div class="members-wrapper">
+			<div class="member" id="murilo">
+				<div class="member-header">
+					<img class="profile-pic" src="imgs/murilo.jpg" alt="Murilo M. Grosso">
+					<a class="member-linkedin" href="https://linkedin.com/in/murilomgrosso" target="_blank">
+						<img src="imgs/linkedin.webp" alt="LinkedIn">
+					</a>
+				</div>
+
+				<p class="member-name">Murilo M. Grosso</p>
+				<p class="member-role">Founder, Programmer & Artist</p>
+				<p class="member-description">
+					Computer Science student at the University of São Paulo.
+					The man behind <span class="colored-text">ThornDuck</span> itself, developing games as a hobby since 2017.
+				</p>
+			</div>
+
+			<div class="member" id="daniel">
+				<div class="member-header">
+					<img class="profile-pic" src="imgs/daniel.jpg" alt="Daniel L. Grave">
+					<a class="member-linkedin" href="https://linkedin.com/in/daniellgrave" target="_blank">
+						<img src="imgs/linkedin.webp" alt="LinkedIn">
+					</a>
+				</div>
+				<p class="member-name">Daniel L. Grave</p>
+				<p class="member-role">Composer & Strategy Consultant</p>
+				<p class="member-description">
+                    Software engineer and Unity developer with 6+ years experience.
+                    Composer of <span class="colored-text">The Warrior soundtrack</span>.
+				</p>
+			</div>
+		</div>
+	</section>
+</main>
+
+<footer>
+	<p>contact@thornduck.com</p>
+	<p>© 2026 ThornDuck</p>
+</footer>
 </body>
 </html>
