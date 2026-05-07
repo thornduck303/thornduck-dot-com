@@ -96,6 +96,10 @@ h2 {
 	font-size: 30px;
 }
 
+h3 {
+	font-size: 25px;
+}
+
 p {
     font-size: 20px;
     line-height: 1.6;
@@ -187,8 +191,8 @@ p {
 }
 
 .profile-pic { 
-	width: 100px; 
-	height: 100px;
+	width: 120px; 
+	height: 120px;
 	margin: 40px auto 0 auto; 
 
 	border-radius: 50%; 
@@ -220,6 +224,61 @@ p {
 .member-description {
 	margin: 0.5rem 0;
 	text-align: justify;
+}
+
+.partners-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+	justify-content: center;
+}
+
+.partner {
+    width: 140px;
+}
+
+.partner-pic { 
+	width: 75px; 
+	height: 75px;
+	margin: 20px auto 0 auto; 
+
+	border-radius: 50%; 
+	object-fit: cover; 
+
+	box-shadow: 0 4px 10px var(--black); 
+}
+
+.partner-name {
+	margin: 0.10rem 0;
+  	font-weight: bold;
+}
+
+.partner-role {
+	color: rgba(80, 80, 90, 1);
+	font-size: 16px;
+  	font-style: italic;
+}
+
+.partner-description {
+	font-size: 16px;
+}
+
+#daniel {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#daniel .partner-pic {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+}
+
+#daniel .partner-info {
+    text-align: left;
 }
 
 .game {
