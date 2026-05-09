@@ -1,2 +1,2 @@
-# thornduck-dot-com
-ThornDuck's official website
+# thornduck.com
+ThornDuck's official website.
