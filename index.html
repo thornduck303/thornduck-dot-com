@@ -2,7 +2,11 @@
 <html lang="en">
 <head>	
     	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>ThornDuck</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap" rel="stylesheet">
     	<link rel="stylesheet" href="styles/style.css">
 		<link rel="icon" href="imgs/icon_32.ico">
 </head>
@@ -33,13 +37,21 @@
 	<img id="main-logo" class="pixel-perfect-image" src="imgs/thornduck_160x80_2025.gif" alt="ThornDuck logo">
 
 	<section id="games">
-		<p> </p>
 		<h2>Games</h2>
 
 		<div class="game">
 			<a class="game-capsule" href="https://store.steampowered.com/app/2411250/The_Warrior/" target="_blank">
-				<img src="imgs/thewarrior_capsule.png" alt="The Warrior game cover">
+				<div class="capsule-image-wrapper">
+					<img src="imgs/thewarrior_capsule.png" alt="The Warrior game cover">
+				</div>
 			</a>
+
+			<div class="game-info">
+				<p class="game-name">The Warrior</p>
+				<div class="game-platforms">
+					<img src="imgs/steam.webp" alt="Available on Steam">
+				</div>
+			</div>
 		</div>
 	</section>
 

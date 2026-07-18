@@ -12,6 +12,9 @@
 	--white:		#ffffff;
 	--black:		#000000;
 	--darkblue:		#090512;
+	--panelgray:	rgba(25, 25, 30, 1);
+	--mutedgray:	rgba(80, 80, 90, 1);
+	--footergray:	rgba(60, 60, 100, 1);
 }
 
 * {
@@ -20,7 +23,7 @@
 }
 
 body {
-	font-family: Arial, sans-serif;
+	font-family: 'Arvo', serif;
 	background-color: var(--darkblue);
 	color: var(--white);
 }
@@ -47,7 +50,7 @@ header {
 }
 
 .header-logo {
-	height: 40px;
+	height: 45px;
 }
 
 nav a {
@@ -70,6 +73,13 @@ nav a:hover {
 .header-right img {
 	height: 25px;
 	margin-left: 15px;
+
+	filter: brightness(0) invert(0.45);
+	transition: filter 0.3s;
+}
+
+.header-right img:hover {
+	filter: brightness(0) invert(1);
 }
 
 main {
@@ -96,10 +106,6 @@ h2 {
 	font-size: 30px;
 }
 
-h3 {
-	font-size: 25px;
-}
-
 p {
     font-size: 20px;
     line-height: 1.6;
@@ -113,6 +119,7 @@ p {
 #main-logo {
 	margin-top: 70px;
 	width: 640px;
+	max-width: 90vw;
 }
 
 .pixel-perfect-image{
@@ -134,6 +141,7 @@ p {
 .text {
 	max-width: 700px;
 	margin: auto;
+	text-align: justify;
 }
 
 .members-wrapper {
@@ -149,7 +157,7 @@ p {
 	margin: 2rem 0; 
 	border-radius: 16px; 
 
-	background-color: rgba(25, 25, 30, 1); 
+	background-color: var(--panelgray); 
 	overflow: hidden; 
 	box-shadow: 0 8px 25px var(--black); 
 
@@ -173,10 +181,6 @@ p {
 
 #murilo::before {
 	background-image: url("../imgs/murilo_header.jpg");
-}
-
-#daniel::before {
-	background-image: url("../imgs/daniel_header.jpg");
 }
 
 .member > * { 
@@ -209,6 +213,13 @@ p {
 
 .member-linkedin img { 
 	width: 30px; height: auto; 
+
+	filter: brightness(0) invert(0.45);
+	transition: filter 0.3s;
+}
+
+.member-linkedin img:hover {
+	filter: brightness(0) invert(1);
 }
 
 .member-name {
@@ -217,7 +228,7 @@ p {
 }
 
 .member-role {
-	color: rgba(80, 80, 90, 1); 
+	color: var(--mutedgray); 
   	font-style: italic;
 }
 
@@ -230,8 +241,68 @@ p {
 	margin-top: 40px;
 }
 
-.game-capsule img {
-	border-radius: 8px;
+.game-capsule {
+	display: inline-block;
+	width: 600px;
+	max-width: 90vw;
+}
+
+.capsule-image-wrapper {
+	position: relative;
+	overflow: hidden;
+	border-radius: 0;
+}
+
+.capsule-image-wrapper img {
+	display: block;
+	width: 100%;
+	transition: transform 0.3s ease;
+}
+
+.capsule-image-wrapper::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-color: var(--black);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.game-capsule:hover .capsule-image-wrapper img {
+	transform: scale(1.04);
+}
+
+.game-capsule:hover .capsule-image-wrapper::after {
+	opacity: 0.3;
+}
+
+.game-info {
+	width: 600px;
+	max-width: 90vw;
+	margin: 6px auto 0;
+	text-align: left;
+}
+
+.game-name {
+	font-size: 22px;
+	font-weight: bold;
+	transition: opacity 0.3s ease;
+}
+
+.game-capsule:hover ~ .game-info .game-name {
+	opacity: 0.6;
+}
+
+.game-platforms {
+	display: flex;
+	justify-content: flex-start;
+	gap: 12px;
+	margin-top: 4px;
+}
+
+.game-platforms img {
+	height: 22px;
+	filter: brightness(0) invert(0.45);
 }
 
 footer {
@@ -240,6 +311,114 @@ footer {
 }
 
 footer p {
-	color: rgba(60, 60, 100, 1); 
+	color: var(--footergray); 
 	font-size: 15px;
+}
+
+@media (max-width: 900px) {
+	.header-left {
+		gap: 15px;
+	}
+
+	.header-logo {
+		height: 34px;
+	}
+
+	nav a {
+		padding: 6px 12px;
+		font-size: 14px;
+	}
+
+	.header-right img {
+		height: 20px;
+		margin-left: 10px;
+	}
+}
+
+@media (max-width: 640px) {
+	header {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: auto;
+		gap: 8px;
+		padding: 10px 16px;
+	}
+
+	.header-left {
+		height: 40px;
+	}
+
+	.header-right {
+		display: flex;
+		align-items: center;
+		height: 28px;
+		gap: 16px;
+	}
+
+	.header-right img {
+		margin-left: 0;
+	}
+
+	main {
+		margin-top: 96px;
+		background-size: auto 220px, auto 220px;
+	}
+
+	#main-logo {
+		width: 90%;
+		max-width: 340px;
+		margin-top: 25px;
+	}
+
+	section {
+		margin-top: 45px;
+		margin-bottom: 45px;
+		padding: 0 16px;
+	}
+
+	h2 {
+		font-size: 24px;
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+	.game-capsule,
+	.game-info {
+		width: 100%;
+	}
+
+	.game-name {
+		font-size: 18px;
+	}
+
+	.member {
+		padding: 1.5rem;
+	}
+
+	.profile-pic {
+		width: 100px;
+		height: 100px;
+	}
+
+	.member-linkedin {
+		top: 90px;
+	}
+}
+
+@media (max-width: 380px) {
+	.header-logo {
+		height: 28px;
+	}
+
+	nav a {
+		padding: 5px 8px;
+		font-size: 12px;
+	}
+
+	.header-right img {
+		height: 18px;
+	}
 }
