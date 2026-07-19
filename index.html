@@ -13,14 +13,20 @@
 
 <body>
 <header>
+	<button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+
 	<div class="header-left">
 		<a href="#">
 			<img src="imgs/thornduck_header.png" alt="ThornDuck logo" class="header-logo">
 		</a>
 
 		<nav>
-			<a href="#games">Games</a>
-			<a href="#about">About</a>
+			<a href="#games">GAMES</a>
+			<a href="#about">ABOUT</a>
 		</nav>
 	</div>
 
@@ -31,32 +37,170 @@
 		<a href="https://github.com/thornduck303" target="_blank"><img src="imgs/github.webp" alt="Github"></a>
 		<a href="https://store.steampowered.com/curator/45712863-ThornDuck/" target="_blank"><img src="imgs/steam.webp" alt="Steam"></a>
 	</div>
+
+	<div class="mobile-menu" id="mobileMenu"></div>
 </header>
 
 <main>
 	<img id="main-logo" class="pixel-perfect-image" src="imgs/thornduck_160x80_2025.gif" alt="ThornDuck logo">
 
 	<section id="games">
-		<h2>Games</h2>
+		<h2>GAMES</h2>
 
-		<div class="game">
-			<a class="game-capsule" href="https://store.steampowered.com/app/2411250/The_Warrior/" target="_blank">
-				<div class="capsule-image-wrapper">
-					<img src="imgs/thewarrior_capsule.png" alt="The Warrior game cover">
+		<div class="games-group">
+			<h3 class="games-subheading">OFFICIAL RELEASES</h3>
+
+			<div class="games-grid official-games">
+				<div class="game">
+					<a class="game-capsule" href="https://store.steampowered.com/app/2411250/The_Warrior/" target="_blank">
+						<div class="capsule-image-wrapper">
+							<img src="imgs/thewarrior_capsule.png" alt="The Warrior game cover">
+							<video class="capsule-video" src="imgs/thewarrior_trailer.mp4" muted loop playsinline preload="none"></video>
+						</div>
+					</a>
+
+					<div class="game-info">
+						<p class="game-name">The Warrior</p>
+						<div class="game-platforms">
+							<img src="imgs/windows.webp" alt="Available on Windows">
+							<img src="imgs/linux.webp" alt="Available on Linux">
+							<img src="imgs/mac.webp" alt="Available on Mac">
+						</div>
+					</div>
 				</div>
-			</a>
+			</div>
+		</div>
 
-			<div class="game-info">
-				<p class="game-name">The Warrior</p>
-				<div class="game-platforms">
-					<img src="imgs/steam.webp" alt="Available on Steam">
+		<div class="games-group">
+			<h3 class="games-subheading">GAME JAM GAMES</h3>
+
+			<div class="games-grid jam-games">
+				<div class="game">
+					<a class="game-capsule" href="https://thornduck.itch.io/the-hitchhikers-guide-to-the-seas" target="_blank">
+						<div class="capsule-image-wrapper">
+							<img src="imgs/thgtts_capsule.png" alt="The Hitchhiker's Guide To The Seas game cover">
+						</div>
+					</a>
+
+					<div class="game-info">
+						<p class="game-name">T.H.G.T.T.S.</p>
+						<div class="game-platforms">
+							<img src="imgs/windows.webp" alt="Available on Windows">
+						</div>
+					</div>
+				</div>
+
+				<div class="game">
+					<a class="game-capsule" href="https://thornduck.itch.io/microliro" target="_blank">
+						<div class="capsule-image-wrapper">
+							<img src="imgs/microliro_capsule.png" alt="Microliro game cover">
+						</div>
+					</a>
+
+					<div class="game-info">
+						<p class="game-name">Microliro</p>
+						<div class="game-platforms">
+							<img src="imgs/windows.webp" alt="Available on Windows">
+						</div>
+					</div>
+				</div>
+
+				<div class="game">
+					<a class="game-capsule" href="https://thornduck.itch.io/may-31st-2004" target="_blank">
+						<div class="capsule-image-wrapper">
+							<img src="imgs/may31st2004_capsule.png" alt="May 31st, 2004 game cover">
+						</div>
+					</a>
+
+					<div class="game-info">
+						<p class="game-name">May 31st, 2004</p>
+						<div class="game-platforms">
+							<img src="imgs/windows.webp" alt="Available on Windows">
+						</div>
+					</div>
+				</div>
+
+				<div class="game">
+					<a class="game-capsule" href="https://thornduck.itch.io/chroma" target="_blank">
+						<div class="capsule-image-wrapper">
+							<img src="imgs/chroma_capsule.png" alt="Chroma game cover">
+						</div>
+					</a>
+
+					<div class="game-info">
+						<p class="game-name">Chroma</p>
+						<div class="game-platforms">
+							<img src="imgs/windows.webp" alt="Available on Windows">
+						</div>
+					</div>
+				</div>
+
+				<div class="game">
+					<a class="game-capsule" href="https://thorn-dragon.itch.io/ice-light" target="_blank">
+						<div class="capsule-image-wrapper">
+							<img src="imgs/icelight_capsule.png" alt="Ice Light game cover">
+						</div>
+					</a>
+
+					<div class="game-info">
+						<p class="game-name">Ice Light</p>
+						<div class="game-platforms">
+							<img src="imgs/windows.webp" alt="Available on Windows">
+						</div>
+					</div>
+				</div>
+
+				<div class="game">
+					<a class="game-capsule" href="https://thornduck.itch.io/blind-wild" target="_blank">
+						<div class="capsule-image-wrapper">
+							<img src="imgs/blindwild_capsule.png" alt="Blind Wild game cover">
+						</div>
+					</a>
+
+					<div class="game-info">
+						<p class="game-name">Blind Wild</p>
+						<div class="game-platforms">
+							<img src="imgs/windows.webp" alt="Available on Windows">
+						</div>
+					</div>
+				</div>
+
+				<div class="game">
+					<a class="game-capsule" href="https://thornduck.itch.io/damn-im-late" target="_blank">
+						<div class="capsule-image-wrapper">
+							<img src="imgs/damnimlate_capsule.png" alt="Damn, I'm Late game cover">
+						</div>
+					</a>
+
+					<div class="game-info">
+						<p class="game-name">Damn, I'm Late!</p>
+						<div class="game-platforms">
+							<img src="imgs/windows.webp" alt="Available on Windows">
+						</div>
+					</div>
+				</div>
+
+				<div class="game">
+					<a class="game-capsule" href="https://thornduck.itch.io/delivery-time" target="_blank">
+						<div class="capsule-image-wrapper">
+							<img src="imgs/deliverytime_capsule.png" alt="Delivery Time game cover">
+						</div>
+					</a>
+
+					<div class="game-info">
+						<p class="game-name">Delivery Time</p>
+						<div class="game-platforms">
+							<img src="imgs/html.webp" alt="Available on Browser">
+							<img src="imgs/windows.webp" alt="Available on Windows">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<section id="about">
-		<h2>About</h2>
+		<h2>ABOUT</h2>
 
 		<div class="text">
 			<p>
@@ -89,5 +233,7 @@
 	<p>contact@thornduck.com</p>
 	<p>© 2026 ThornDuck</p>
 </footer>
+
+<script src="scripts/script.js"></script>
 </body>
 </html>
