@@ -333,6 +333,10 @@ p {
 	justify-content: center;
 }
 
+.game {
+	min-width: 0;
+}
+
 .official-games {
 	gap: 40px;
 	max-width: 1220px;
@@ -367,7 +371,11 @@ p {
 }
 
 .jam-games .game-platforms img {
-	height: 13px;
+	height: 12px;
+}
+
+.jam-games .game-year {
+	font-size: 12px;
 }
 
 .game-capsule {
@@ -413,8 +421,8 @@ p {
 	margin: 0;
 
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	flex-direction: column;
+	gap: 0px;
 
 	background-color: var(--panelgray);
 	padding: 6px 20px;
@@ -427,16 +435,35 @@ p {
 	font-size: 22px;
 	font-weight: bold;
 	transition: opacity 0.3s ease;
+
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .game-capsule:hover ~ .game-info .game-name {
 	opacity: 0.6;
 }
 
+.game-meta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
 .game-platforms {
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: 8px;
+	margin-bottom: 4px;
+}
+
+.game-year {
+	color: var(--icongray);
+	font-size: 16px;
+	font-weight: bold;
+	white-space: nowrap;
 }
 
 .game-platforms img {
