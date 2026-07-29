@@ -27,6 +27,7 @@ body {
 	font-family: 'Arvo', serif;
 	background-color: var(--darkblue);
 	color: var(--white);
+	overflow-x: hidden;
 }
 
 header {
@@ -346,15 +347,33 @@ p {
 	align-items: center;
 }
 
-.profile-pic { 
-	width: 120px; 
-	height: 120px;
-	margin: 40px auto 0 auto; 
+.profile-pic-link {
+	display: block;
+	margin: 40px auto 0 auto;
+}
 
-	border-radius: 50%; 
+.profile-pic-wrapper {
+	width: 120px;
+	height: 120px;
+
+	border-radius: 50%;
+	overflow: hidden;
+
+	box-shadow: 0 4px 10px var(--black);
+}
+
+.profile-pic { 
+	width: 100%; 
+	height: 100%;
+
+	display: block;
 	object-fit: cover; 
 
-	box-shadow: 0 4px 10px var(--black); 
+	transition: transform 0.3s ease;
+}
+
+.profile-pic-link:hover .profile-pic {
+	transform: scale(1.15);
 }
 
 .member-linkedin {
@@ -377,17 +396,26 @@ p {
 .member-name {
 	margin: 0.25rem 0;
   	font-weight: bold;
+	transition: opacity 0.3s ease;
 }
 
 .member-role {
 	color: var(--icongray);
 	font-size: 16px;
 	font-weight: bold;
+	transition: opacity 0.3s ease;
 }
 
 .member-description {
 	margin: 0.5rem 0;
 	text-align: justify;
+	transition: opacity 0.3s ease;
+}
+
+.member:has(.profile-pic-link:hover) .member-name,
+.member:has(.profile-pic-link:hover) .member-role,
+.member:has(.profile-pic-link:hover) .member-description {
+	opacity: 0.6;
 }
 
 .blog-posts {
@@ -403,6 +431,7 @@ p {
 .blog-post {
 	width: 900px;
 	max-width: 100%;
+	min-width: 0;
 
 	display: flex;
 
@@ -416,6 +445,7 @@ p {
 .post-image-link {
 	display: block;
 	flex: 0 0 280px;
+	min-width: 0;
 }
 
 .post-image-wrapper {
@@ -462,12 +492,14 @@ p {
 	letter-spacing: 0.8px;
 	font-weight: bold;
 	transition: opacity 0.3s ease;
+	overflow-wrap: break-word;
 }
 
 .post-description {
 	font-size: 16px;
 	line-height: 1.5;
 	transition: opacity 0.3s ease;
+	overflow-wrap: break-word;
 }
 
 .post-image-link:hover ~ .post-info .post-title,
@@ -615,7 +647,9 @@ p {
 	text-overflow: ellipsis;
 }
 
-.game-capsule:hover ~ .game-info .game-name {
+.game-capsule:hover ~ .game-info .game-name,
+.game-capsule:hover ~ .game-info .game-year,
+.game-capsule:hover ~ .game-info .game-platforms {
 	opacity: 0.6;
 }
 
@@ -631,6 +665,7 @@ p {
 	align-items: center;
 	gap: 8px;
 	margin-bottom: 4px;
+	transition: opacity 0.3s ease;
 }
 
 .game-year {
@@ -638,6 +673,7 @@ p {
 	font-size: 16px;
 	font-weight: bold;
 	white-space: nowrap;
+	transition: opacity 0.3s ease;
 }
 
 .game-platforms img {
@@ -757,6 +793,7 @@ footer p {
 	}
 
 	.blog-post {
+		width: 100%;
 		flex-direction: column;
 	}
 
