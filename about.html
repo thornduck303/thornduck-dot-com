@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>	
+    	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>ThornDuck - About</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="preload" as="image" href="imgs/main_background.png" fetchpriority="high">
+    	<link rel="stylesheet" href="styles/style.css">
+		<link rel="icon" href="imgs/icon_32.ico">
+</head>
+
+<body>
+<header>
+	<button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+
+	<div class="header-left">
+		<a href="index.html">
+			<img src="imgs/thornduck_header.png" alt="ThornDuck logo" class="header-logo">
+		</a>
+
+		<nav>
+			<a href="index.html">GAMES</a>
+			<a href="about.html">ABOUT</a>
+			<a href="blog.html">BLOG</a>
+		</nav>
+	</div>
+
+	<div class="header-right">
+		<a href="https://www.youtube.com/@thornduck303" target="_blank"><img src="imgs/youtube.webp" alt="YouTube"></a>
+		<a href="https://twitter.com/Murilo3031" target="_blank"><img src="imgs/x.webp" alt="X"></a>
+		<a href="https://bsky.app/profile/thornduck.bsky.social" target="_blank"><img src="imgs/bluesky.webp" alt="Bluesky"></a>
+		<a href="https://github.com/thornduck303" target="_blank"><img src="imgs/github.webp" alt="Github"></a>
+		<a href="https://store.steampowered.com/curator/45712863-ThornDuck/" target="_blank"><img src="imgs/steam.webp" alt="Steam"></a>
+	</div>
+
+	<div class="mobile-menu" id="mobileMenu"></div>
+</header>
+
+<main class="no-bg">
+	<section id="about">
+		<h2>ABOUT</h2>
+
+		<div class="text text-center">
+			<p>
+				<span class="colored-text">ThornDuck</span> is a small indie game studio based in Brazil, led by a solo developer supported by friends.
+			</p>
+		</div>
+
+		<div class="members-wrapper">
+			<div class="member" id="murilo">
+				<div class="member-header">
+					<img class="profile-pic" src="imgs/murilo.jpg" alt="Murilo M. Grosso">
+					<a class="member-linkedin" href="https://linkedin.com/in/murilomgrosso" target="_blank">
+						<img src="imgs/linkedin.webp" alt="LinkedIn">
+					</a>
+				</div>
+
+				<p class="member-name">Murilo M. Grosso</p>
+				<p class="member-role">Founder</p>
+				<p class="member-description">
+					Computer Science student at the University of São Paulo.
+					The man behind <span class="colored-text">ThornDuck</span> itself, developing games as a hobby since 2017.
+				</p>
+			</div>
+		</div>
+	</section>
+</main>
+
+<footer>
+	<p>contact@thornduck.com</p>
+	<p>© 2026 ThornDuck</p>
+</footer>
+
+<script src="scripts/script.js"></script>
+</body>
+</html>
