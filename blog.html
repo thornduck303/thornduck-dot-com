@@ -13,66 +13,17 @@
 </head>
 
 <body>
-<header>
-	<button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
-		<span></span>
-		<span></span>
-		<span></span>
-	</button>
-
-	<div class="header-left">
-		<a href="index.html">
-			<img src="imgs/thornduck_header.png" alt="ThornDuck logo" class="header-logo">
-		</a>
-
-		<nav>
-			<a href="index.html">GAMES</a>
-			<a href="about.html">ABOUT</a>
-			<a href="blog.html">BLOG</a>
-		</nav>
-	</div>
-
-	<div class="header-right">
-		<a href="https://www.youtube.com/@thornduck303" target="_blank"><img src="imgs/youtube.webp" alt="YouTube"></a>
-		<a href="https://twitter.com/Murilo3031" target="_blank"><img src="imgs/x.webp" alt="X"></a>
-		<a href="https://bsky.app/profile/thornduck.bsky.social" target="_blank"><img src="imgs/bluesky.webp" alt="Bluesky"></a>
-		<a href="https://github.com/thornduck303" target="_blank"><img src="imgs/github.webp" alt="Github"></a>
-		<a href="https://store.steampowered.com/curator/45712863-ThornDuck/" target="_blank"><img src="imgs/steam.webp" alt="Steam"></a>
-	</div>
-
-	<div class="mobile-menu" id="mobileMenu"></div>
-</header>
+<header id="header"></header>
 
 <main class="no-bg">
 	<section id="blog">
 		<h2>BLOG</h2>
 
-		<div class="blog-posts">
-			<article class="blog-post">
-				<a class="post-image-link" href="posts/post-2026-07-29.html">
-					<div class="post-image-wrapper">
-						<img src="imgs/default_post.jpg" alt="Post cover">
-					</div>
-				</a>
-
-				<div class="post-info">
-					<p class="post-title">WHY SHOULD YOU START A BLOG?</p>
-					<p class="post-date">July 29th, 2026</p>
-					<p class="post-description">
-						For years, I've been trying to start a devlog series on my YouTube channel. 
-                        While I did manage to post one video a while ago...
-					</p>
-					<a class="read-more" href="posts/post-2026-07-29.html">READ</a>
-				</div>
-			</article>
-		</div>
+		<div class="blog-posts" id="blog-posts"></div>
 	</section>
 </main>
 
-<footer>
-	<p>contact@thornduck.com</p>
-	<p>© 2026 ThornDuck</p>
-</footer>
+<footer id="footer"></footer>
 
 <script src="scripts/script.js"></script>
 </body>

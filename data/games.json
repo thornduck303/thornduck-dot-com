@@ -1,0 +1,60 @@
+{
+	"official": [
+		{
+			"name": "The Warrior",
+			"year": "2025",
+			"url": "https://store.steampowered.com/app/2411250/The_Warrior/",
+			"platforms": ["windows", "linux", "mac"]
+		}
+	],
+	"jam": [
+		{
+			"name": "The Hitchhiker's Guide To The Seas",
+			"year": "2022",
+			"url": "https://thornduck.itch.io/the-hitchhikers-guide-to-the-seas",
+			"platforms": ["windows"]
+		},
+		{
+			"name": "Microliro",
+			"year": "2022",
+			"url": "https://thornduck.itch.io/microliro",
+			"platforms": ["windows"]
+		},
+		{
+			"name": "May 31st, 2004",
+			"year": "2021",
+			"url": "https://thornduck.itch.io/may-31st-2004",
+			"platforms": ["windows"]
+		},
+		{
+			"name": "Chroma",
+			"year": "2021",
+			"url": "https://thornduck.itch.io/chroma",
+			"platforms": ["windows"]
+		},
+		{
+			"name": "Ice Light",
+			"year": "2020",
+			"url": "https://thorn-dragon.itch.io/ice-light",
+			"platforms": ["windows"]
+		},
+		{
+			"name": "Blind Wild",
+			"year": "2024",
+			"url": "https://thornduck.itch.io/blind-wild",
+			"platforms": ["windows"]
+		},
+		{
+			"name": "Damn, I'm Late!",
+			"year": "2023",
+			"url": "https://thornduck.itch.io/damn-im-late",
+			"platforms": ["windows"]
+		},
+		{
+			"name": "Delivery Time",
+			"year": "2021",
+			"url": "https://thornduck.itch.io/delivery-time",
+			"platforms": ["browser", "windows"]
+		}
+	]
+}
