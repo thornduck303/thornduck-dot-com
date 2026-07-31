@@ -1,0 +1,15 @@
+name = "thornduck-newsletter"
+main = "index.js"
+compatibility_date = "2026-07-31"
+
+# Create the namespace first with:
+#   wrangler kv namespace create EMAILS
+# then paste the returned id below.
+[[kv_namespaces]]
+binding = "EMAILS"
+id = "3204d7ee1caf4a449d4993e7b6acac23"
+
+[vars]
+# Only needed if you deploy to the workers.dev subdomain instead of
+# a Route on your own domain (see README.md for the difference).
+ALLOWED_ORIGIN = "https://thornduck.com"

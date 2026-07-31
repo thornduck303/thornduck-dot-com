@@ -261,6 +261,43 @@ p {
 	margin-bottom: 1.5rem;
 }
 
+#post-body img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+
+	margin: 24px 0;
+	border-radius: 16px;
+}
+
+#post-body figure {
+	margin: 24px 0;
+}
+
+#post-body figure img {
+	margin: 0;
+}
+
+#post-body figcaption {
+	margin-top: 8px;
+	font-size: 16px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#post-body a {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-style: dashed;
+	text-underline-offset: 3px;
+	transition: opacity 0.3s ease;
+}
+
+#post-body a:hover {
+	opacity: 0.6;
+}
+
 .post-page-date {
 	color: var(--icongray);
 	font-size: 16px;
@@ -307,6 +344,62 @@ p {
 
 .text-center {
 	text-align: center;
+}
+
+.newsletter {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 12px;
+
+	max-width: 480px;
+	margin: -24px auto 0;
+}
+
+.newsletter input[type="email"] {
+	flex: 1;
+	min-width: 250px;
+
+	padding: 10px 18px;
+	border: 2px solid var(--panelgray);
+	border-radius: 10px;
+
+	background-color: var(--darkblue);
+	color: var(--white);
+	font-family: 'Arvo', serif;
+	font-size: 15px;
+
+	outline: none;
+	transition: border-color 0.3s;
+}
+
+.newsletter input[type="email"]::placeholder {
+	color: var(--icongray);
+}
+
+.newsletter input[type="email"]:focus {
+	border-color: var(--white);
+}
+
+.newsletter-btn {
+	padding: 10px 20px;
+	border: 2px solid var(--pink);
+	border-radius: 10px;
+
+	background-color: var(--darkblue);
+	color: var(--pink);
+	font-family: 'Arvo', serif;
+	font-weight: bold;
+	font-size: 14px;
+	white-space: nowrap;
+
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.newsletter-btn:hover {
+	background-color: var(--pink);
+	color: var(--darkblue);
 }
 
 .members-wrapper {
@@ -438,7 +531,7 @@ p {
 }
 
 .blog-post {
-	width: 900px;
+	width: 60%;
 	max-width: 100%;
 	min-width: 0;
 
@@ -831,6 +924,17 @@ footer p {
 
 	.post-description {
 		font-size: 15px;
+	}
+
+	.newsletter {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.newsletter input[type="email"],
+	.newsletter-btn {
+		width: 100%;
+		max-width: 320px;
 	}
 }
 

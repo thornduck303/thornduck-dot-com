@@ -39,6 +39,22 @@ function slugify(name) {
 	return name.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
+function parseFrontmatter(text) {
+	var match = text.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
+	if (!match) return { meta: {}, body: text };
+
+	var meta = {};
+	match[1].split('\n').forEach(function (line) {
+		var idx = line.indexOf(':');
+		if (idx === -1) return;
+		var key = line.slice(0, idx).trim();
+		var value = line.slice(idx + 1).trim();
+		meta[key] = value;
+	});
+
+	return { meta: meta, body: match[2].trim() };
+}
+
 function bindCapsuleVideos() {
 	document.querySelectorAll('.game-capsule').forEach(function (capsule) {
 		var video = capsule.querySelector('.capsule-video');
@@ -132,16 +148,24 @@ bindCapsuleVideos();
 		return;
 	}
 
-	fetch('posts/' + slug + '.json')
+	fetch('posts/' + slug + '.md')
 		.then(function (res) {
 			if (!res.ok) throw new Error('Not found');
-			return res.json();
+			return res.text();
 		})
-		.then(function (post) {
-			document.title = 'ThornDuck - ' + post.title;
-			titleEl.textContent = post.title;
-			dateEl.textContent = post.date;
-			bodyEl.innerHTML = post.body;
+		.then(function (text) {
+			var parsed = parseFrontmatter(text);
+			var meta = parsed.meta;
+
+			document.title = 'ThornDuck - ' + meta.title;
+			titleEl.textContent = meta.title;
+			dateEl.textContent = meta.date;
+
+			bodyEl.innerHTML = marked.parse(parsed.body);
+
+			if (meta.author) {
+				bodyEl.insertAdjacentHTML('beforeend', '<p class="muted-text">- ' + meta.author + '</p>');
+			}
 		})
 		.catch(showNotFound);
 })();
@@ -249,6 +273,51 @@ bindCapsuleVideos();
 })();
 
 (function () {
+	var btn = document.querySelector('.newsletter-btn');
+	if (!btn) return;
+
+	var input = document.getElementById('email');
+
+	// If you routed the worker on your own domain (recommended, see
+	// worker/README.md), use a relative path like '/api/subscribe'.
+	// If you're using the workers.dev URL directly, put the full URL here.
+	var WORKER_URL = '/api/subscribe';
+
+	btn.addEventListener('click', function () {
+		var email = (input.value || '').trim();
+		if (!email) return;
+
+		btn.disabled = true;
+		var originalText = btn.textContent;
+		btn.textContent = 'SENDING...';
+
+		fetch(WORKER_URL, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ email: email })
+		})
+			.then(function (res) { return res.json(); })
+			.then(function (data) {
+				if (data.error) {
+					btn.textContent = 'INVALID EMAIL';
+				} else {
+					btn.textContent = 'SUBSCRIBED!';
+					input.value = '';
+				}
+			})
+			.catch(function () {
+				btn.textContent = 'ERROR, TRY AGAIN';
+			})
+			.finally(function () {
+				setTimeout(function () {
+					btn.disabled = false;
+					btn.textContent = originalText;
+				}, 3000);
+			});
+	});
+})();
+
+(function () {
 	var blogContainer = document.getElementById('blog-posts');
 	if (!blogContainer) return;
 
@@ -260,19 +329,20 @@ bindCapsuleVideos();
 
 	function renderPost(post, slug) {
 		var link = 'post.html?post=' + slug;
-		var description = stripHtml(post.body || '').trim().slice(0, 300);
+		var image = 'imgs/' + slugify(post.title) + '_post.jpg';
+		var fallback = 'imgs/default_post.jpg';
 
 		return '' +
 			'<article class="blog-post">' +
 				'<a class="post-image-link" href="' + link + '">' +
 					'<div class="post-image-wrapper">' +
-						'<img src="' + (post.image || 'imgs/default_post.jpg') + '" alt="' + post.title + '">' +
+						'<img src="' + image + '" alt="' + post.title + '" onerror="this.onerror=null;this.src=\'' + fallback + '\';">' +
 					'</div>' +
 				'</a>' +
 				'<div class="post-info">' +
 					'<p class="post-title">' + post.title + '</p>' +
 					'<p class="post-date">' + post.date + '</p>' +
-					'<p class="post-description">' + description + '</p>' +
+					'<p class="post-description">' + post.description + '</p>' +
 					'<a class="read-more" href="' + link + '">READ</a>' +
 				'</div>' +
 			'</article>';
@@ -285,13 +355,20 @@ bindCapsuleVideos();
 		})
 		.then(function (slugs) {
 			return Promise.all(slugs.map(function (slug) {
-				return fetch('posts/' + slug + '.json')
+				return fetch('posts/' + slug + '.md')
 					.then(function (res) {
 						if (!res.ok) throw new Error('Not found');
-						return res.json();
+						return res.text();
 					})
-					.then(function (post) {
-						return renderPost(post, slug);
+					.then(function (text) {
+						var parsed = parseFrontmatter(text);
+						var description = stripHtml(marked.parse(parsed.body)).trim().slice(0, 300);
+
+						return renderPost({
+							title: parsed.meta.title,
+							date: parsed.meta.date,
+							description: description
+						}, slug);
 					})
 					.catch(function () {
 						return '';
